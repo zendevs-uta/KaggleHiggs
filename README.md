@@ -1,6 +1,7 @@
 # Higgs Boson Machine Learning Challenge
 
 **Student:** Zane Coons  
+**Course:** DATA-3402  
 **Date:** May 1, 2026  
 
 ---
