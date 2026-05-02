@@ -131,6 +131,36 @@ The optimal classification threshold was found to be 0.941, meaning the model on
 
 ---
 
+## Data Visualizations
+
+The following plots are generated within the notebook and illustrate key findings from the data exploration and model evaluation stages.
+
+### Class Distribution
+![Class Distribution](images/class_distribution.png)
+Signal and background event counts showing the ~2:1 class imbalance (34.27% signal, 65.73% background) that motivated the use of th physics-weighted sample weights during training.
+
+### Missing Values
+![Missing Values](images/missing_values.png)
+Features with missing values (originally encoded as -999.0), split into two structural groups: jet-dependent features (40-71% missing) and DER_mass_MMC (15% missing).
+
+### Feature Importance
+![Feature Importance](images/feature_importance.png)
+Top 20 feature importances from the Gradient Boosting Classifier. Mass features dominate, $\phi$ features rank near zero, and the engineered missingness flag DER_mass_MMC_missing ranks 8th out of 44 - validating the missingness indicator engineering decision.
+
+### AMS vs Threshold
+![AMS vs Threshold](images/ams_threshold.png)
+AMS score swept across all classification thresholds. The peak at 0.941 identifies the optimal cutoff used for the final submission, reflecting the AMS metric's heavier penalty on false positives.
+
+### ROC Curve
+![ROC Curve](images/roc_curve.png)
+Receiver Operating Characteristic curve showing an AUC of 0.8972 on the validation set and 0.9007 on the holdout set.
+
+### Before vs After Cleaning
+![Before vs After](images/before_after_cleaning.png)
+Six representative features (representative cross-section of the dataset rather than showing all 29 continuous features) shown before and after the full cleaning pipeline. Class separation is preserved while feature scales are normalized.
+
+---
+
 ## Results
 
 | Metric | Validation | Hold-out |
